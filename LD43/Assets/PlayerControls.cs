@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour {
 
+    public GameObject bumper;
+
     public static bool runAgents = false;
 
 	// Use this for initialization
@@ -22,6 +24,10 @@ public class PlayerControls : MonoBehaviour {
 
     public void RunAgents() {
         runAgents = true;
+    }
+
+    public void CreateBumper() {
+        GameObject.Instantiate(bumper);
     }
 
     Movable objectMoving;
