@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour {
 
-	static List<Rigidbody2D> portaled = new List<Rigidbody2D>();
 	// Use this for initialization
 	void Start () {
 		
@@ -25,10 +24,16 @@ public class Portal : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D collision)
     {
 		collision.gameObject.SetActive(false);
-		portaled.Add(collision.rigidbody);
+		Destroy(collision.gameObject);
 
 		if (collision.gameObject.tag == "Scorable") {
-			LevelManager.IncrementScore();
+
+			var movable = collision.gameObject.GetComponent<Movable>();
+			
+			bool valid = movable == null || !movable.invalid;
+
+			if (valid)	LevelManager.IncrementScore();
+
 		}
     }
 }

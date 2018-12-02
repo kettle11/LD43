@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a5485cb0c4a3243c5a9632ac1ddb1b56
+guid: 5860d9c709be042a7a49cb125e182618
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Riffic Free
+  fontName: Signika
   fontNames:
-  - Riffic Free
+  - Signika
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

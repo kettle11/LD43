@@ -20,7 +20,8 @@ public class Bumper : MonoBehaviour {
     {
         Rigidbody2D rigidbody = collision.rigidbody;
 		
-		rigidbody.AddForce(this.transform.up * force, ForceMode2D.Impulse);
+		Vector3 normal = collision.contacts[0].normal;
+		rigidbody.AddForce(-normal * force, ForceMode2D.Impulse);
 
 	//	Debug.Log("Bumped!");
     }

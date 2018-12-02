@@ -44,6 +44,7 @@ public class Cannon : MonoBehaviour {
 		float firedObjectZ = firedObject.transform.position.z;
 
 		Rigidbody2D rigidbody = firedObject.GetComponent<Rigidbody2D>();
+		rigidbody.angularVelocity = Random.Range(-200.0f, 200.0f);
 		rigidbody.AddForce(this.transform.up * firingPower, ForceMode2D.Impulse);
 		firedObject.transform.position = this.transform.position + this.transform.up * spawnOffset;
 		firedObject.transform.position = new Vector3(firedObject.transform.position.x, firedObject.transform.position.y, firedObjectZ);

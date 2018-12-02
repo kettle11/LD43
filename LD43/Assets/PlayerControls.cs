@@ -107,7 +107,8 @@ public class PlayerControls : MonoBehaviour {
                     Movable movable = hit.collider.GetComponent<Movable>() ;
                     if (movable != null) {
                         objectMoving = movable;
-
+                        objectMoving.invalid = true;
+                        
                         Rigidbody2D rigidbody = objectMoving.GetComponent<Rigidbody2D>();
 
                         if (rigidbody != null) {
