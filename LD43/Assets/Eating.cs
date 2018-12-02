@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Eating : MonoBehaviour {
 
+	public AudioSource source;
+	public AudioClip[] clips;
 	public SpriteRenderer spriteRenderer;
 	public Sprite defaultSprite;
 	
@@ -46,6 +48,8 @@ public class Eating : MonoBehaviour {
 				blueberryCount = 0;
 			}
 		}
+
+		source.PlayOneShot(clips[(int)Random.Range(0, clips.Length)]);
 
 		Destroy(gameObject);
 	}
