@@ -14,10 +14,21 @@ public class Portal : MonoBehaviour {
 	void Update () {
 		
 	}
+	
+	int currentSaved = 0;
+	int currentTarget = 50;
 
+	void Reset() {
+		currentSaved = 0;
+	}
+	
 	void OnCollisionEnter2D(Collision2D collision)
     {
 		collision.gameObject.SetActive(false);
 		portaled.Add(collision.rigidbody);
+
+		if (collision.gameObject.tag == "Scorable") {
+			LevelManager.IncrementScore();
+		}
     }
 }

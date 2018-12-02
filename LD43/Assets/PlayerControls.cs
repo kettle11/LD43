@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControls : MonoBehaviour {
 
@@ -8,10 +9,32 @@ public class PlayerControls : MonoBehaviour {
 
     public static bool runAgents = false;
 
+    public static Text scoreTextStatic;
+    public static Text goalScoreTextStatic;
+
+    public Text scoreText;
+    public Text goalScoreText;
+    
+    public static PlayerControls instance;
+
+    public GameObject createBumperObject;
+
+    void Awake() {
+        instance = this;
+    }
+
 	// Use this for initialization
 	void Start () {
-		
+		scoreTextStatic = scoreText;
+        goalScoreTextStatic = goalScoreText;
+
+        scoreText.text = "0";
+        goalScoreText.text = "50";
 	}
+
+    public static void EnableDisableBumper(bool createBumper) {
+        instance.createBumperObject.SetActive(createBumper);
+    }
 
     void Update() {
 

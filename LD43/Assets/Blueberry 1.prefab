@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114235121632491146}
   m_Layer: 8
   m_Name: Blueberry 1
-  m_TagString: Untagged
+  m_TagString: Scorable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
