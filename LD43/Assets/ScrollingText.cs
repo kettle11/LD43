@@ -19,10 +19,12 @@ public class ScrollingText : MonoBehaviour {
 	string displayString;
 
 	int currentCharacter;
-
+	
+	static ScrollingText instance;
 	// Use this for initialization
 	void Start () {
 		LoadTextBox();
+		instance = this;
 	}
 	
 	float nextWordTimer;
@@ -53,13 +55,19 @@ public class ScrollingText : MonoBehaviour {
 	void LoadTextBox() {
 		currentStringRemaining = texts[0];
 		textBox.text = displayString;
+	}	
+
+	public static void SetText(IEnumerable<string> newTexts) {
+		instance.texts.Clear();
+		instance.texts.AddRange(newTexts);
+		instance.reachedEnd = false;
 	}
 
 	public SpriteRenderer targetSpriteChange;
 	public Sprite firstSprite;
 	public Sprite secondSprite;
 	public bool onFirstSprite = false;
-
+	
 	void RunScrollingText() {
 		if (nextWordTimer < 0 && !reachedEnd) {
 			displayString += nextWord + " ";
@@ -73,7 +81,7 @@ public class ScrollingText : MonoBehaviour {
 			textBox.text = displayString;
 			nextWordTimer = MeasureWord(nextWord);
 
-			if (targetSpriteChange != null) {
+			if (targetSpriteChange != null && (targetSpriteChange.sprite == firstSprite || targetSpriteChange.sprite == secondSprite)) {
 				if (onFirstSprite) {
 					targetSpriteChange.sprite = secondSprite;
 					onFirstSprite = false;

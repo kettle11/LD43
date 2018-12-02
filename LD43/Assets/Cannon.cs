@@ -41,6 +41,8 @@ public class Cannon : MonoBehaviour {
 
 	void Fire() {
 		GameObject firedObject = GameObject.Instantiate(firingObject);
+
+		LevelManager.thingsToUnspawn.Add(firedObject);
 		float firedObjectZ = firedObject.transform.position.z;
 
 		Rigidbody2D rigidbody = firedObject.GetComponent<Rigidbody2D>();

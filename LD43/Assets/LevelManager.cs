@@ -11,6 +11,8 @@ public class LevelManager : MonoBehaviour {
 
 	public static LevelManager instance;
 
+	public static List<GameObject> thingsToUnspawn = new List<GameObject>();
+
 	void Awake () {
 		UnityEngine.Object[] levelScripts = Resources.FindObjectsOfTypeAll(typeof(LevelScript));
 		
@@ -25,6 +27,11 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	void NextLevel() {
+
+		foreach(GameObject go in thingsToUnspawn) {
+			Destroy(go);
+		}
+		
 		currentLevel.Unload();
 		currentLevel.gameObject.SetActive(false);
 
