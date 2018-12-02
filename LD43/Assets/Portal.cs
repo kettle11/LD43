@@ -32,7 +32,11 @@ public class Portal : MonoBehaviour {
 			
 			bool valid = movable == null || !movable.invalid;
 
-			if (valid)	LevelManager.IncrementScore();
+			if (valid)	{
+				LevelManager.IncrementScore();
+			} else {
+				ScrollingText.InsertText(new[]{"Hey!", "NO CHEATING!"});
+			}
 
 		}
     }

@@ -57,10 +57,22 @@ public class ScrollingText : MonoBehaviour {
 		textBox.text = displayString;
 	}	
 
+	public static void InsertText(IEnumerable<string> newTexts) {
+		instance.texts.InsertRange(instance.currentTextIndex, newTexts);
+		instance.reachedEnd = false;
+		instance.nextWord = "";
+		instance.displayString = "";
+		instance.currentStringRemaining = instance.texts[instance.currentTextIndex];
+	}
+
 	public static void SetText(IEnumerable<string> newTexts) {
 		instance.texts.Clear();
 		instance.texts.AddRange(newTexts);
 		instance.reachedEnd = false;
+		instance.nextWord = "";
+		instance.displayString = "";
+		instance.currentStringRemaining = instance.texts[0];
+		instance.currentTextIndex = 0;
 	}
 
 	public SpriteRenderer targetSpriteChange;
