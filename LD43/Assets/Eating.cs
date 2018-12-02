@@ -56,6 +56,8 @@ public class Eating : MonoBehaviour {
 
 	public Transform targetBumperPosition;
 
+	static bool firstTime = true;
+
 	void CreateBumper() {
 		holdMouthOpen += 1.0f;
 		GameObject newBumper = Instantiate(bumper);
@@ -63,6 +65,11 @@ public class Eating : MonoBehaviour {
 		newBumper.GetComponent<InterpolateToPosition>().StartInterpolationTo(targetBumperPosition.position);
 		
 		LevelManager.thingsToUnspawn.Add(newBumper);
+
+		if (firstTime) {
+				ScrollingText.SetText(new[]{"Tell no one..."});
+				firstTime = false;
+		}
 	}
 
 	// Update is called once per frame

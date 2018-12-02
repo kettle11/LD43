@@ -23,10 +23,11 @@ public class Portal : MonoBehaviour {
 	
 	void OnCollisionEnter2D(Collision2D collision)
     {
-		collision.gameObject.SetActive(false);
-		Destroy(collision.gameObject);
+
 
 		if (collision.gameObject.tag == "Scorable") {
+			
+			Destroy(collision.gameObject);
 
 			var movable = collision.gameObject.GetComponent<Movable>();
 			

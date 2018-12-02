@@ -20,15 +20,17 @@ public class PlayerControls : MonoBehaviour {
 
     void Awake() {
         instance = this;
-    }
 
-	// Use this for initialization
-	void Start () {
-		scoreTextStatic = scoreText;
+        scoreTextStatic = scoreText;
         goalScoreTextStatic = goalScoreText;
 
         scoreText.text = "0";
         goalScoreText.text = "50";
+    }
+
+	// Use this for initialization
+	void Start () {
+
 	}
 
     public static void EnableDisableBumper(bool createBumper) {

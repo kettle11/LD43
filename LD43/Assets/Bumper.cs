@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Bumper : MonoBehaviour {
 
+	float z;
 	// Use this for initialization
 	void Start () {
+		z = transform.position.z;
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		transform.position = new Vector3(transform.position.x, transform.position.y, -10);
 	}
 
 	public float force;
@@ -21,8 +23,10 @@ public class Bumper : MonoBehaviour {
         Rigidbody2D rigidbody = collision.rigidbody;
 		
 		Vector3 normal = collision.contacts[0].normal;
-		rigidbody.AddForce(-normal * force, ForceMode2D.Impulse);
 
+		rigidbody.velocity *= .8f;
+		rigidbody.AddForce(-normal * force, ForceMode2D.Impulse);
+		
 	//	Debug.Log("Bumped!");
     }
 }
