@@ -28,6 +28,7 @@ public class Eating : MonoBehaviour {
 
 		if (!eatingEnabled) return;
 		spriteRenderer.sprite = mouthOpen;
+		holdMouthOpen = .2f;
 	}
 
 	public void Eat(GameObject gameObject) {
@@ -38,6 +39,7 @@ public class Eating : MonoBehaviour {
 
 		if (gameObject.tag == "Scorable") {
 			blueberryCount++;
+			LevelManager.IncrementDead();
 
 			if (blueberryCount >= blueberryGoal) {
 				CreateBumper();
@@ -56,9 +58,11 @@ public class Eating : MonoBehaviour {
 
 	void CreateBumper() {
 		holdMouthOpen += 1.0f;
-		Instantiate(bumper);
-		bumper.transform.position = this.transform.position;
-		bumper.GetComponent<InterpolateToPosition>().StartInterpolationTo(targetBumperPosition.position);
+		GameObject newBumper = Instantiate(bumper);
+		newBumper.transform.position = this.transform.position;
+		newBumper.GetComponent<InterpolateToPosition>().StartInterpolationTo(targetBumperPosition.position);
+		
+		LevelManager.thingsToUnspawn.Add(newBumper);
 	}
 
 	// Update is called once per frame

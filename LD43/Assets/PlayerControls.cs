@@ -17,7 +17,6 @@ public class PlayerControls : MonoBehaviour {
     
     public static PlayerControls instance;
 
-    public GameObject createBumperObject;
 
     void Awake() {
         instance = this;
@@ -33,7 +32,6 @@ public class PlayerControls : MonoBehaviour {
 	}
 
     public static void EnableDisableBumper(bool createBumper) {
-        instance.createBumperObject.SetActive(createBumper);
     }
 
     void Update() {
@@ -108,7 +106,7 @@ public class PlayerControls : MonoBehaviour {
                     if (movable != null) {
                         objectMoving = movable;
                         objectMoving.invalid = true;
-                        
+
                         Rigidbody2D rigidbody = objectMoving.GetComponent<Rigidbody2D>();
 
                         if (rigidbody != null) {

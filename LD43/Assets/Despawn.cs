@@ -20,8 +20,9 @@ public class Despawn : MonoBehaviour {
 			lifespan -= Time.deltaTime;
 		}
 
-		if (this.transform.position.y < -5) {
+		if (this.transform.position.y < -10) {
 			Destroy(this.gameObject);
+			LevelManager.IncrementDead();
 		}
 	}
 }

@@ -12,12 +12,10 @@ public class LevelScript : MonoBehaviour {
 	
 	public int targetSavedBlueberries;
 	
-	void Awake() {
-		LevelManager.currentLevel = this;
-	}
-
 	// Use this for initialization
 	void Start () {
+		LevelManager.AssignLevel(this);
+
 		foreach (Transform transform1 in transform) {
 			children.Add(transform1);
 		}
