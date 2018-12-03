@@ -49,7 +49,7 @@ public class Eating : MonoBehaviour {
 			}
 		}
 
-		source.PlayOneShot(clips[(int)Random.Range(0, clips.Length)]);
+		source.PlayOneShot(clips[0]);
 
 		Destroy(gameObject);
 	}
