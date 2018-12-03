@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour {
 
+	AudioSource source;
+	AudioClip clip;
 	// Use this for initialization
 	void Start () {
-		
+		source = this.gameObject.AddComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -39,6 +41,7 @@ public class Portal : MonoBehaviour {
 				ScrollingText.InsertText(new[]{"Hey!", "NO CHEATING!"});
 			}
 
+			source.PlayOneShot(PlayerControls.instance.portalSound);
 		}
     }
 }

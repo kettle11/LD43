@@ -297,7 +297,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1927722646163718}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.8, y: -3.7, z: 0.2}
+  m_LocalPosition: {x: -10.8, y: -3.7, z: 5}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 4502556994640964}
@@ -549,7 +549,7 @@ MonoBehaviour:
   mouthClosed: {fileID: 21300000, guid: d797cec28b90c47b8afb41c02f388062, type: 3}
   mouthClosedTime: 4
   blueberryGoal: 4
-  eatingEnabled: 1
+  eatingEnabled: 0
   bumper: {fileID: 1414092224754432, guid: 3a5839edc1e8a4f829c6255958cc88e9, type: 2}
   targetBumperPosition: {fileID: 0}
 --- !u!114 &114317734437488298
@@ -746,7 +746,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d797cec28b90c47b8afb41c02f388062, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b7b95d195a4824527b67d6dae5a3c427, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

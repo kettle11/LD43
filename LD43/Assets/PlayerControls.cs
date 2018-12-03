@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerControls : MonoBehaviour {
 
+    public AudioClip portalSound;
+
     public GameObject bumper;
 
     public static bool runAgents = false;
@@ -16,7 +18,7 @@ public class PlayerControls : MonoBehaviour {
     public Text goalScoreText;
     
     public static PlayerControls instance;
-
+    
 
     void Awake() {
         instance = this;

@@ -12,6 +12,7 @@ public class LevelScript : MonoBehaviour {
 	
 	public int targetSavedBlueberries;
 	
+	public int index;
 	// Use this for initialization
 	void Start () {
 		LevelManager.AssignLevel(this);

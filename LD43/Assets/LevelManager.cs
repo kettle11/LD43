@@ -16,21 +16,22 @@ public class LevelManager : MonoBehaviour {
 
 	public static int currentDead;
 	void Awake () {
+		instance = this;
+
 		UnityEngine.Object[] levelScripts = Resources.FindObjectsOfTypeAll(typeof(LevelScript));
 		
 		levels = new LevelScript[levelScripts.Length];
 
-		foreach(LevelScript level in levelScripts) {
-			level.siblingIndex = level.transform.GetSiblingIndex();
-			levels[level.siblingIndex-1] = level;
+		int i = 0;
+		foreach (LevelScript level in levelScripts) {
+			levels[i] = level;
+			i++;
 		}
-		
-		instance = this;
 	}
 
 	public static void AssignLevel(LevelScript level) {
 		currentLevel = level;
-		instance.levels[currentLevel.siblingIndex-1].gameObject.SetActive(true);
+		level.gameObject.SetActive(true);
 		PlayerControls.goalScoreTextStatic.text = "" + currentLevel.targetSavedBlueberries;
 		currentScore = 0;
 	}
@@ -41,10 +42,16 @@ public class LevelManager : MonoBehaviour {
 			Destroy(go);
 		}
 		
+		int index = currentLevel.index;
+
 		currentLevel.Unload();
 		currentLevel.gameObject.SetActive(false);
 
-		levels[currentLevel.siblingIndex].gameObject.SetActive(true);
+		foreach(LevelScript level in levels) {
+			if (level.index == index + 1) {
+				level.gameObject.SetActive(true);
+			}
+		}
 
 		PlayerControls.goalScoreTextStatic.text = "" + currentLevel.targetSavedBlueberries;
 		currentScore = 0;
